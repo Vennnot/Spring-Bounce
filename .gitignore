@@ -33,6 +33,8 @@ ExportedObj/
 .consulo/
 *.mp3
 *.mp3.meta
+*.wav
+*.wav.meta
 *.csproj
 *.unityproj
 *.sln
