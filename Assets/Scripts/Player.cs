@@ -78,13 +78,13 @@ sealed public class Player : MonoBehaviour
 
     IEnumerator DelayDeath()
     {
-        yield return new WaitForSeconds((float)0.5);
+        yield return new WaitForSeconds((float)0.75);
         FindObjectOfType<GameController>().ResetLevel();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag("Enemy"))
+        if(col.CompareTag("Enemy") || col.CompareTag("Trap"))
         {
             Die();
         }
@@ -102,6 +102,14 @@ sealed public class Player : MonoBehaviour
             myRigidBody2D.velocity = Vector2.zero;
         }
     }
+    
+    // private void OnTriggerStay2D(Collider2D col)
+    // {
+    //     if(col.CompareTag("Enemy") || col.CompareTag("Trap"))
+    //     {
+    //         Die();
+    //     }
+    // }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -148,7 +156,6 @@ sealed public class Player : MonoBehaviour
             }
         }
     }
-//||
     void Jump()
     {
          if(justPressedJump && wasJustOnGround)
