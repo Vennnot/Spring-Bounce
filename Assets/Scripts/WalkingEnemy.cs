@@ -12,6 +12,7 @@ public class WalkingEnemy : Enemy, IEnemy
     [SerializeField] private bool coroutineStarted;
     public void Bonked()
     {
+        StopAllCoroutines();
         GetComponent<BoxCollider2D>().enabled = false;
         animator.SetTrigger("isBonked");
         myRigidBody2D.constraints = RigidbodyConstraints2D.None;

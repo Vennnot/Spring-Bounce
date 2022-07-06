@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+sealed public class Player : MonoBehaviour
 {
     private Vector2 moveInput;
     private Rigidbody2D myRigidBody2D;
