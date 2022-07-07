@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour
     public Arrow(int x, float y)
     {
         this.chosenDirection = (Direction) x;
-        this.speed = speed;
+        this.speed = y;
     }
 
     // Start is called before the first frame update
