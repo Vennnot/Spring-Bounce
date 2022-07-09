@@ -223,5 +223,6 @@ MonoBehaviour:
   jumpSpeed: 10
   coyoteBuffer: 0.3
   jumpBuffer: 0.2
+  optionsMenu: {fileID: 0}
   died: 0
   deathForce: {x: 0, y: 100}

@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
     [SerializeField] public AudioSource musicSource, effectsSource, playerSource;
+
+    [SerializeField] private AudioClip[] musicClips;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +26,19 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(!musicSource.isPlaying)
+        { 
+            int random = Random.Range(0,6);
+           PlayMusic(musicClips[random]);
+        }
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.PlayOneShot(clip);
+    }
     public void PlaySound(AudioClip clip)
     {
         effectsSource.PlayOneShot(clip);

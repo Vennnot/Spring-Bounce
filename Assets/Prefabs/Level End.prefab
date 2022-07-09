@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoadDelay: 2
+  levelEnd: {fileID: 8300000, guid: be5b5343d6cc59941a13494a96bbea8b, type: 3}
