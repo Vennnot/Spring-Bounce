@@ -215,7 +215,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451dc52d31578f94a91f041ee4c71704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpClip: {fileID: 8300000, guid: a2abd0f5116174140b7418e40909cba5, type: 3}
+  deathClip: {fileID: 8300000, guid: 55faee547050a2d4ab0fce3e2d1ee83b, type: 3}
+  walkClip: {fileID: 8300000, guid: 2c4ac1fd1564e804a8c9e726835e127e, type: 3}
+  pauseClip: {fileID: 8300000, guid: 41cb019c85b5fe848ac898b56a15de5b, type: 3}
   runSpeed: 4
   jumpSpeed: 10
   coyoteBuffer: 0.3
   jumpBuffer: 0.2
+  died: 0
+  deathForce: {x: 0, y: 100}

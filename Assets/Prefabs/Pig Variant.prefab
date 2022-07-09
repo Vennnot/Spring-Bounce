@@ -265,6 +265,7 @@ MonoBehaviour:
   readyToWalk: 1
   walkWait: 1
   coroutineStarted: 0
+  clip: {fileID: 8300000, guid: a2abd0f5116174140b7418e40909cba5, type: 3}
 --- !u!4 &8753946259023141452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5048652294330665128, guid: be4c54d14c050b94ea99394db7aa879a, type: 3}

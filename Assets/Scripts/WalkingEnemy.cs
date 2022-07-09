@@ -10,8 +10,10 @@ public class WalkingEnemy : Enemy, IEnemy
     [SerializeField] private bool readyToWalk = true;
     [SerializeField] private float walkWait = 1f;
     [SerializeField] private bool coroutineStarted;
+    [SerializeField] private AudioClip clip;
     public void Bonked()
     {
+        SoundManager.Instance.PlaySound(clip);
         StopAllCoroutines();
         GetComponent<BoxCollider2D>().enabled = false;
         animator.SetTrigger("isBonked");
@@ -19,7 +21,6 @@ public class WalkingEnemy : Enemy, IEnemy
         myRigidBody2D.AddTorque(7f);
         myRigidBody2D.AddForce(bonkForce);
         GetComponent<CapsuleCollider2D>().enabled = false;
-        Debug.Log("Disabled Collider");
         GetComponentInChildren<BoxCollider2D>().enabled = false;
     }
 

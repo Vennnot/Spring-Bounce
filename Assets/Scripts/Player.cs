@@ -11,6 +11,11 @@ sealed public class Player : MonoBehaviour
     private Animator animator;
     private bool levelEnd;
     
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip deathClip;
+    [SerializeField] private AudioClip walkClip;
+    [SerializeField] private AudioClip pauseClip;
+    
     [Header("Movement")] [SerializeField] private float runSpeed;
 
     [SerializeField] private float jumpSpeed;
@@ -57,6 +62,7 @@ sealed public class Player : MonoBehaviour
         died = true;
         if(!levelEnd)
         {
+            SoundManager.Instance.PlayPlayerSound(deathClip);
             animator.SetTrigger("isHit");
             myRigidBody2D.velocity = new Vector2(0f, 0f);
             StartCoroutine(DelayDeath());
@@ -136,6 +142,7 @@ sealed public class Player : MonoBehaviour
     }
     void OnPause(InputValue value)
     {
+        SoundManager.Instance.PlayPlayerSound(pauseClip);
         if(!PauseMenu.GameIsPaused)
         {
             PauseMenu.GameIsPaused = true;
@@ -153,6 +160,10 @@ sealed public class Player : MonoBehaviour
             {
                 justPressedJump = true;
                 StartCoroutine(JumpBufferTimer());
+                if (wasJustOnGround)
+                {
+                    SoundManager.Instance.PlayPlayerSound(jumpClip);
+                }
             }
         }
     }
@@ -201,6 +212,7 @@ sealed public class Player : MonoBehaviour
     {
         if(!died)
         {
+            // SoundManager.Instance.PlayPlayerSound(walkClip);
             // Adds speed to the horizontal velocity
             myRigidBody2D.velocity = new Vector2(moveInput.x * runSpeed, myRigidBody2D.velocity.y);
         }
