@@ -24,6 +24,8 @@ sealed public class Player : MonoBehaviour
 
     [SerializeField] private double jumpBuffer = 0.2f;
 
+    [SerializeField] private OptionsMenu optionsMenu;
+
     private bool wasJustOnGround;
 
     private bool justPressedJump;
@@ -31,13 +33,14 @@ sealed public class Player : MonoBehaviour
     [SerializeField] private bool died;
     [SerializeField] Vector2 deathForce = new Vector2(0f, 100f);
 
-    //[SerializeField] private PauseMenu pauseMenu;
+    private PauseMenu pauseMenu;
     
 
     public event Action OnPowerUpUse;
 
     private void Start()
     {
+        pauseMenu = FindObjectOfType<PauseMenu>();
         animator = GetComponent<Animator>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
     }
@@ -85,7 +88,7 @@ sealed public class Player : MonoBehaviour
     IEnumerator DelayDeath()
     {
         yield return new WaitForSeconds((float)0.75);
-        FindObjectOfType<GameController>().ResetLevel();
+        GameController.Instance.ResetLevel();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -142,14 +145,15 @@ sealed public class Player : MonoBehaviour
     }
     void OnPause(InputValue value)
     {
-        SoundManager.Instance.PlayPlayerSound(pauseClip);
-        if(!PauseMenu.GameIsPaused)
+        if(!PauseMenu.GameIsPaused && !optionsMenu.isEnabled)
         {
-            PauseMenu.GameIsPaused = true;
+            SoundManager.Instance.PlayPlayerSound(pauseClip);
+            pauseMenu.Pause();
         }
-        else
+        else if(!optionsMenu.isEnabled)
         {
-            PauseMenu.GameIsPaused = false;
+            SoundManager.Instance.PlayPlayerSound(pauseClip);
+            pauseMenu.Resume();
         }
     }
     void OnJump(InputValue value)
@@ -224,6 +228,10 @@ sealed public class Player : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
+        // if(SoundManager.Instance.playerSource.)
+        // {
+        //     SoundManager.Instance.PlayPlayerSound(walkClip);
+        // }
     }
 
     bool IsMovingHorizontally()

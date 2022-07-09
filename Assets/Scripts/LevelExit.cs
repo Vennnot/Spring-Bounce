@@ -9,6 +9,7 @@ public class LevelExit : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 2;
     private Animator animator;
+    [SerializeField] private AudioClip levelEnd;
     
     private void Start()
     {
@@ -18,6 +19,7 @@ public class LevelExit : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySound(levelEnd);
             animator.SetTrigger("isLevelEnding");
             StartCoroutine(LoadNextLevel());
         }

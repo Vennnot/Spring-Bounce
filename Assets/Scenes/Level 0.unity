@@ -15740,11 +15740,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.8598919, y: 6.0669355}
-      - {x: -11.004712, y: 5.8430905}
-      - {x: -10.946127, y: -8.899188}
-      - {x: 6.465639, y: -8.899186}
-      - {x: 6.5694785, y: 6.024122}
+    - - {x: -0.8001957, y: 15.857135}
+      - {x: -16.019207, y: 14.976631}
+      - {x: -16.020317, y: -15.764267}
+      - {x: 19.957012, y: -15.107606}
+      - {x: 20.078234, y: 9.904298}
 --- !u!1 &1728424194
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,14 +15929,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 724248302}
-    - target: {fileID: 4939806034455004753, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939806034455004753, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.87
-      objectReference: {fileID: 0}
     - target: {fileID: 4939806034455004755, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -15988,14 +15980,6 @@ PrefabInstance:
     - target: {fileID: 4939806035048314629, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939806035403881513, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.7558722
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939806035403881513, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.86517537
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12be44d2ac0cd90479775ddf16ebcff7, type: 3}
