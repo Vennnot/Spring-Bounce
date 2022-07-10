@@ -65,14 +65,15 @@ sealed public class Player : MonoBehaviour
         died = true;
         if(!levelEnd)
         {
+            GameController.Instance.IncrementDeaths();
             SoundManager.Instance.PlayPlayerSound(deathClip);
             animator.SetTrigger("isHit");
             myRigidBody2D.velocity = new Vector2(0f, 0f);
             StartCoroutine(DelayDeath());
             GetComponent<CapsuleCollider2D>().enabled = false;
             myRigidBody2D.constraints = RigidbodyConstraints2D.None;
-            myRigidBody2D.AddTorque(7f);
-            myRigidBody2D.AddForce(deathForce);
+            myRigidBody2D.AddTorque(30f);
+            myRigidBody2D.AddForce(deathForce*4);
         }
     }
 
@@ -81,7 +82,10 @@ sealed public class Player : MonoBehaviour
         if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Hazards")) ||
             (transform.position.y < -15))
         {
-            Die();
+            if(!died)
+            {
+                Die();
+            }
         }
     }
 

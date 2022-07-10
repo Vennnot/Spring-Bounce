@@ -10,7 +10,7 @@ public class LevelExit : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2;
     private Animator animator;
     [SerializeField] private AudioClip levelEnd;
-    
+
     private void Start()
     {
         animator = GetComponent<Animator>();
