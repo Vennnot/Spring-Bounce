@@ -22,6 +22,7 @@ public class WalkingEnemy : Enemy, IEnemy
         myRigidBody2D.AddForce(bonkForce);
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponentInChildren<BoxCollider2D>().enabled = false;
+        GameController.Instance.IncrementKills();
     }
 
     protected override void Movement()

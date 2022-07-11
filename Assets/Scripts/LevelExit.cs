@@ -34,7 +34,11 @@ public class LevelExit : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
-        //FindObjectOfType<ScenePersist>().ResetScenePersist();
+
+        if (GameController.Instance.levelUnlocked < nextSceneIndex)
+        {
+            GameController.Instance.levelUnlocked = nextSceneIndex;
+        }
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

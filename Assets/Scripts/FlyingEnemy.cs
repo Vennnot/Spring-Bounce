@@ -11,6 +11,7 @@ public class FlyingEnemy : Enemy, IEnemy
     [SerializeField] private AudioClip clip;
     public void Bonked()
     {
+        GameController.Instance.IncrementKills();
         SoundManager.Instance.PlaySound(clip);
         StopAllCoroutines();
         GetComponent<BoxCollider2D>().enabled = false;

@@ -46,8 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableDataPersistence: 0
   initializeDataIfNull: 0
-  overrideSelectedProfileId: 0
-  testSelectedProfileId: test
-  fileName: data.game
+  fileName: BoogaBooga.data
   useEncryption: 0
-  autoSaveTimeSeconds: 60
+  autoSaveTimeSeconds: 1000000

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Win32.SafeHandles;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,10 @@ public class GameController : MonoBehaviour, IDataPersistence
     public static GameController Instance;
 
     public int playerDeaths = 0;
+
+    public int playerKills = 0;
+
+    public int levelUnlocked = 1;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,16 +40,25 @@ public class GameController : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.playerDeaths = data.deathCount;
+        this.playerKills = data.killCount;
+        this.levelUnlocked = data.levelUnlocked;
     }
 
     public void SaveData(GameData data)
     {
+        //Saved Data
         data.deathCount = playerDeaths;
+        data.killCount = playerKills;
+        data.levelUnlocked = levelUnlocked;
     }
 
     public void IncrementDeaths()
     {
-        Debug.Log("Increment deaths was called");
         playerDeaths++;
     }
+    public void IncrementKills()
+    {
+        playerKills++;
+    }
+    
 }
