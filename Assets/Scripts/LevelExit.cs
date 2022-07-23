@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
-{
-    [SerializeField] float levelLoadDelay = 2;
+{ float levelLoadDelay = 2;
     private Animator animator;
     [SerializeField] private AudioClip levelEnd;
+    [SerializeField] private int levelNumber = 1;
 
     private void Start()
     {
@@ -17,11 +17,16 @@ public class LevelExit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
             SoundManager.Instance.PlaySound(levelEnd);
             animator.SetTrigger("isLevelEnding");
-            StartCoroutine(LoadNextLevel());
+            if (GameController.Instance.levelUnlocked < levelNumber)
+            {
+                GameController.Instance.levelUnlocked = levelNumber;
+            }
+
+                StartCoroutine(LoadNextLevel());
         }
     }
 

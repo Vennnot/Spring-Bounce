@@ -44,8 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c034842ad7fd297469f26ffb82f98534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableDataPersistence: 0
-  initializeDataIfNull: 0
-  fileName: BoogaBooga.data
-  useEncryption: 0
-  autoSaveTimeSeconds: 1000000
+  fileName: SpringBounce.data

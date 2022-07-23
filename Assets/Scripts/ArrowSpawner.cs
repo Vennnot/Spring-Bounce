@@ -32,9 +32,9 @@ public class ArrowSpawner : MonoBehaviour
     IEnumerator SpawnArrow()
     {
         yield return new WaitForSeconds(frequency);
-        Instantiate(arrow, transform.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().speed = speed;
         arrow.GetComponent<Arrow>().chosenDirection = (Arrow.Direction)direction;
+        Instantiate(arrow, transform.position, Quaternion.identity);
         coroutineStarted = false;
     }
 }
